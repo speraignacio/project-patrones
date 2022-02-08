@@ -1,6 +1,9 @@
 package com.nttdata.bootcamp;
 
-public class Person implements IPrototype {
+import com.nttdata.bootcamp.decorator.IPersona;
+import com.nttdata.bootcamp.proxy.IPersonaProxy;
+
+public class Person implements IPrototype, IPersona, IPersonaProxy {
 
 	private String nombre;
 	private int edad;
@@ -14,7 +17,7 @@ public class Person implements IPrototype {
 		super();
 		this.nombre = nombre;
 		this.edad = edad;
-		System.out.println("Mi nombre es: " + this.nombre);
+		//System.out.println("Mi nombre es: " + this.nombre);
 	}
 
 	public static PersonBuilder builder() {
@@ -67,6 +70,12 @@ public class Person implements IPrototype {
 	 */
 	public void setEdad(int edad) {
 		this.edad = edad;
+	}
+
+	@Override
+	public void operacion() {
+	System.out.println("operacion original");
+		
 	}
 
 }
